@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Онлайн калькулятор: Расчет количества обоев</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>{{title}}</h1>
+
+            <form>
+                <div class="form-group">
+                    <label for="room_width">Ширина комнаты, м</label>
+                    <input id="room_width" class="form-control" name="room_width" type="text" value="{{room_width}}"
+                           placeholder="5" required>
+                </div>
+                <div class="form-group">
+                    <label for="room_length">Длина комнаты, м</label>
+                    <input id="room_length" class="form-control" name="room_length" type="text" value="{{room_length}}"
+                           placeholder="6" required>
+                </div>
+                <div class="form-group">
+                    <label for="room_height">Высота комнаты, м</label>
+                    <input id="room_height" class="form-control" name="room_height" type="text" value="{{room_height}}"
+                           placeholder="2.75" required>
+                </div>
+                <div class="form-group">
+                    <label for="wallpaper_width">Ширина рулона обоев, м</label>
+                    <input id="wallpaper_width" class="form-control" name="wallpaper_width" type="text"
+                           value="{{wallpaper_width}}"
+                           placeholder="1.06" required>
+                </div>
+                <div class="form-group">
+                    <label for="wallpaper_length">Длина рулона обоев, м</label>
+                    <input id="wallpaper_length" class="form-control" name="wallpaper_length" type="text"
+                           value="{{wallpaper_length}}"
+                           placeholder="10" required>
+                </div>
+                <div class="form-group">
+                    <label for="wallpaper_repeat">Раппорт, м</label>
+                    <input id="wallpaper_repeat" class="form-control" name="wallpaper_repeat" type="text"
+                           value="{{wallpaper_repeat}}"
+                           placeholder="0.1" required>
+                </div>
+
+
+                <button class="btn btn-primary">Calculate</button>
+            </form>
+
+            {% if calculate_wallpaper %}
+            <div class="alert alert-{{level}}">Для комнаты указанных размеров вам потребуется минимум:
+                {{calculate_wallpaper}} рулонов. Но мы рекомендуем Вам дополнительно приобрести еще 1-2 рулона на случай
+                возможного повреждения обоев, например, во время ремонта
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
